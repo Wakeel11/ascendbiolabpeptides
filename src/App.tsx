@@ -7,7 +7,7 @@ import { FAQ } from './pages/FAQ';
 
 export default function App() {
   return (
-    <Router>
+    <Router basename="/ascendbiolabpeptides">
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />

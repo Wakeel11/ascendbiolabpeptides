@@ -6,10 +6,10 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const navLinks = [
-    { name: 'Home', path: 'https://ascendbiolab.com/' },
-    { name: 'Shop', path: 'https://ascendbiolab.com/shop/' },
-    { name: 'About Us', path: 'https://ascendbiolab.com/about-us/' },
-    { name: 'FAQ', path: 'https://ascendbiolab.com/faq/' },
+    { name: 'Home', path: '/' },
+    { name: 'Products', path: '/products' },
+    { name: 'About Us', path: '/about' },
+    { name: 'FAQ', path: '/faq' },
     { name: 'Contact Us', path: 'https://ascendbiolab.com/contact-us/' },
   ];
 
@@ -18,36 +18,44 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex items-center">
-            <a href="https://ascendbiolab.com/" className="flex items-center space-x-3 group">
+            <Link to="/" className="flex items-center space-x-3 group">
               <img 
                 src="https://ascendbiolab.com/wp-content/uploads/2026/03/ascend-logow-01.png" 
                 alt="Ascend BioLab Logo" 
                 className="h-12 w-auto brightness-0" 
                 referrerPolicy="no-referrer"
               />
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.path}
-                className="text-[13px] font-bold uppercase tracking-wider transition-colors hover:text-[#0056b3] text-gray-700"
-              >
-                {link.name}
-              </a>
+              link.path.startsWith('http') ? (
+                <a
+                  key={link.name}
+                  href={link.path}
+                  className="text-[13px] font-bold uppercase tracking-wider transition-colors hover:text-[#0056b3] text-gray-700"
+                >
+                  {link.name}
+                </a>
+              ) : (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className="text-[13px] font-bold uppercase tracking-wider transition-colors hover:text-[#0056b3] text-gray-700"
+                >
+                  {link.name}
+                </Link>
+              )
             ))}
-            <a
-              href="https://ascendbiolab.com/shop/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/products"
               className="flex items-center space-x-2 bg-[#0056b3] text-white px-6 py-3 rounded-full text-xs font-black uppercase tracking-widest hover:bg-[#004494] transition-all shadow-md hover:shadow-lg active:scale-95"
             >
               <ShoppingCart className="h-4 w-4" />
               <span>Shop Now</span>
-            </a>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -66,24 +74,34 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden bg-white border-t border-gray-100 py-6 px-4 space-y-4 shadow-2xl animate-in slide-in-from-top duration-300">
           {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.path}
-              onClick={() => setIsOpen(false)}
-              className="block px-4 py-3 text-sm font-bold uppercase tracking-widest text-gray-800 hover:bg-gray-50 hover:text-[#0056b3] rounded-xl transition-all"
-            >
-              {link.name}
-            </a>
+            link.path.startsWith('http') ? (
+              <a
+                key={link.name}
+                href={link.path}
+                onClick={() => setIsOpen(false)}
+                className="block px-4 py-3 text-sm font-bold uppercase tracking-widest text-gray-800 hover:bg-gray-50 hover:text-[#0056b3] rounded-xl transition-all"
+              >
+                {link.name}
+              </a>
+            ) : (
+              <Link
+                key={link.name}
+                to={link.path}
+                onClick={() => setIsOpen(false)}
+                className="block px-4 py-3 text-sm font-bold uppercase tracking-widest text-gray-800 hover:bg-gray-50 hover:text-[#0056b3] rounded-xl transition-all"
+              >
+                {link.name}
+              </Link>
+            )
           ))}
-          <a
-            href="https://ascendbiolab.com/shop/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/products"
+            onClick={() => setIsOpen(false)}
             className="flex items-center justify-center space-x-2 bg-[#0056b3] text-white px-4 py-4 rounded-xl text-sm font-black uppercase tracking-widest hover:bg-[#004494] transition-all"
           >
             <ShoppingCart className="h-5 w-5" />
             <span>Shop Now</span>
-          </a>
+          </Link>
         </div>
       )}
     </nav>
@@ -97,12 +115,14 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="col-span-1 md:col-span-1">
             <div className="flex items-center space-x-3 mb-8">
-              <img 
-                src="https://ascendbiolab.com/wp-content/uploads/2026/03/ascend-logow-01.png" 
-                alt="Ascend BioLab Logo" 
-                className="h-12 w-auto" 
-                referrerPolicy="no-referrer"
-              />
+              <Link to="/">
+                <img 
+                  src="https://ascendbiolab.com/wp-content/uploads/2026/03/ascend-logow-01.png" 
+                  alt="Ascend BioLab Logo" 
+                  className="h-12 w-auto" 
+                  referrerPolicy="no-referrer"
+                />
+              </Link>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-8">
               Ascend BioLab – Advancing Science, One Discovery at a Time.
@@ -122,10 +142,10 @@ const Footer = () => {
           <div>
             <h4 className="text-xs font-black uppercase tracking-[0.2em] text-gray-500 mb-8">Navigation</h4>
             <ul className="space-y-4">
-              <li><a href="https://ascendbiolab.com/" className="text-gray-300 hover:text-white text-[13px] font-bold transition-colors">Home</a></li>
-              <li><a href="https://ascendbiolab.com/shop/" className="text-gray-300 hover:text-white text-[13px] font-bold transition-colors">Shop All</a></li>
-              <li><a href="https://ascendbiolab.com/about-us/" className="text-gray-300 hover:text-white text-[13px] font-bold transition-colors">Our Story</a></li>
-              <li><a href="https://ascendbiolab.com/faq/" className="text-gray-300 hover:text-white text-[13px] font-bold transition-colors">Help Center</a></li>
+              <li><Link to="/" className="text-gray-300 hover:text-white text-[13px] font-bold transition-colors">Home</Link></li>
+              <li><Link to="/products" className="text-gray-300 hover:text-white text-[13px] font-bold transition-colors">Shop All</Link></li>
+              <li><Link to="/about" className="text-gray-300 hover:text-white text-[13px] font-bold transition-colors">Our Story</Link></li>
+              <li><Link to="/faq" className="text-gray-300 hover:text-white text-[13px] font-bold transition-colors">Help Center</Link></li>
             </ul>
           </div>
 
