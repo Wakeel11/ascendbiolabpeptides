@@ -47,7 +47,7 @@ export const Products = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-blue-200 text-xs font-black uppercase tracking-[0.3em] mb-4 block">Research Catalog</span>
           <h1 className="text-4xl md:text-6xl font-black tracking-tighter uppercase mb-6">Laboratory Supplies</h1>
-          <p className="text-blue-100 max-w-2xl mx-auto font-medium">
+     <p className="text-blue-100 max-w-2xl mx-auto font-medium">
   <a href="https://ascendbiolab.com/" className="text-blue-200 hover:underline">BPC-157 Peptide </a> Plus Other High purity peptides and specialized chemicals verified for laboratory research excellence.
 </p>
         </div>
