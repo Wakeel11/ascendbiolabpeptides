@@ -38,24 +38,6 @@ const products = [
     link: 'https://ascendbiolab.com/product/bacteriostatic-water-2/',
     img: 'https://ascendbiolab.com/wp-content/uploads/2026/03/Bacteriostatic-Water-300x300.jpg'
   },
-  {
-    id: 5,
-    name: 'CJC 1295 Without Dac 10mg',
-    category: 'Peptides',
-    description: 'A growth hormone releasing hormone (GHRH) analog used in research for long-term study stability.',
-    status: 'In Stock',
-    link: 'https://ascendbiolab.com/product/cjc-1295-without-dac-10mg/',
-    img: 'https://picsum.photos/seed/cjcno/400/300'
-  },
-  {
-    id: 6,
-    name: 'GHK-Cu 50mg',
-    category: 'Peptides',
-    description: 'A naturally occurring copper complex used in research for its biological properties and tissue study.',
-    status: 'In Stock',
-    link: 'https://ascendbiolab.com/product/ghk-cu-50mg/',
-    img: 'https://picsum.photos/seed/ghk/400/300'
-  }
 ];
 
 export const Products = () => {
