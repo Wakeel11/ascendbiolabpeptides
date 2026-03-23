@@ -32,8 +32,8 @@ export const Home = () => {
               Power in Discovery.
             </h1>
             <p className="text-xl text-blue-100 mb-10 leading-relaxed font-medium">
-              Your premier source for high-purity peptides and scientific solutions, specifically engineered for advanced laboratory research.
-            </p>
+  Your premier source for <a href="https://ascendbiolab.com/" className="text-blue-300 hover:underline">high purity peptides</a> and scientific solutions, specifically engineered for advanced laboratory research.
+</p>
             <div className="flex flex-wrap gap-4">
               <a 
                 href="https://ascendbiolab.com/shop/" 
